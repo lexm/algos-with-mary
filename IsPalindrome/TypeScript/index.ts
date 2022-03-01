@@ -19,10 +19,16 @@ process.stdin.on('end', function () {
 function readLine() {
     return input_stdin_array[input_currentline++];
 }
- 
+
+function isPalindrome(str: string): boolean {
+    for(let idx = 0; idx <= str.length / 2; idx++) {
+        if(str[idx] != str[str.length - idx - 1]) return false;
+    }
+    return true;
+}
 function main() {
     let line = "";
     while((line = readLine()) != null) {
-        console.log(line);
+        console.log(line, isPalindrome(line));
     }
 }
